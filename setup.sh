@@ -1,15 +1,15 @@
 #!/bin/sh
 
 # Create storage directory
-mkdir -p /storage/install
+# mkdir -p /storage/install
 
 # Download installer
-cd /storage/install
-wget https://bin.entware.net/aarch64-k3.10/installer/aarch64-installer.tar.gz
+# cd /storage/install
+# wget https://bin.entware.net/aarch64-k3.10/installer/aarch64-installer.tar.gz
 
 # Extract and run installer
-tar -xzvf aarch64-installer.tar.gz
-./installer/install
+# tar -xzvf aarch64-installer.tar.gz
+# ./installer/install
 
 # Install dependencies
 opkg update
