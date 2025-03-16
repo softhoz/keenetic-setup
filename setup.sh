@@ -18,7 +18,7 @@ opkg remove wget-nossl
 
 # Configure NFQWS repository
 mkdir -p /opt/etc/opkg
-echo "src/gz nfqws-keenetic https://anonym-tsk.github.io/nfqws-keenetic/aarch64" >/opt/etc/opkg/nfqws-keenetic.conf
+echo "src/gz nfqws-keenetic https://anonym-tsk.github.io/nfqws-keenetic/mipsel" >/opt/etc/opkg/nfqws-keenetic.conf
 
 # Install NFQWS
 opkg update
