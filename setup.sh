@@ -1,16 +1,5 @@
 #!/bin/sh
 
-# Create storage directory
-# mkdir -p /opt/install
-
-# Download installer
-# cd /storage/install
-# wget https://bin.entware.net/aarch64-k3.10/installer/aarch64-installer.tar.gz
-
-# Extract and run installer
-# tar -xzvf aarch64-installer.tar.gz
-# ./installer/install
-
 # Install dependencies
 opkg update
 opkg install ca-certificates wget-ssl
