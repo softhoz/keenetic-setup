@@ -31,9 +31,9 @@ opkg install nfqws-keenetic-web || log "Failed to install NFQWS web interface"
 
 # DNS Configuration
 log "Configuring DNS servers..."
-ndmc -c dns-proxy tls upstream 213.202.211.221 sni ns2.opennameserver.org|| log "Failed to set TLS upstream 1"
-ndmc -c dns-proxy tls upstream 77.88.8.8 sni common.dot.dns.yandex.net|| log "Failed to set TLS upstream 2"
-ndmc -c dns-proxy tls upstream 8.8.4.4 sni dns.google|| log "Failed to set TLS upstream 3"
+ndmc -c dns-proxy tls upstream 213.202.211.221 sni ns2.opennameserver.org || log "Failed to set TLS upstream 1"
+ndmc -c dns-proxy tls upstream 77.88.8.8 sni common.dot.dns.yandex.net || log "Failed to set TLS upstream 2"
+ndmc -c dns-proxy tls upstream 8.8.4.4 sni dns.google || log "Failed to set TLS upstream 3"
 
 ndmc -c dns-proxy https upstream https://ns2.opennameserver.org/dns-query || log "Failed to set HTTPS upstream 1"
 ndmc -c dns-proxy https upstream https://common.dot.dns.yandex.net/dns-query || log "Failed to set HTTPS upstream 2"
