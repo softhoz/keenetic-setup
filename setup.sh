@@ -17,6 +17,7 @@ opkg remove wget-nossl || log "Failed to remove non-SSL wget"
 log "Configuring NFQWS repository..."
 mkdir -p /opt/etc/opkg || log "Failed to create opkg directory"
 echo "src/gz nfqws-keenetic https://anonym-tsk.github.io/nfqws-keenetic/all" >/opt/etc/opkg/nfqws-keenetic.conf || log "Failed to add NFQWS repository"
+echo "src/gz nfqws-keenetic-web https://nfqws.github.io/nfqws-keenetic-web/all" > /opt/etc/opkg/nfqws-keenetic-web.conf || log "Failed to add NFQWS-WEB repository"
 
 # Install NFQWS
 log "Updating package lists again..."
