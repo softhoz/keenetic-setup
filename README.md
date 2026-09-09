@@ -1,3 +1,25 @@
+# before setup
+
+disable WHNAT
+```sh
+interface WifiMaster1 no whnat
+no ppe hardware
+system configuration save
+```
+
+install entware using buitl in web UI CLI input or ssh/telnet
+
+http://192.168.1.1/a
+
+Для архитектуры Aarch
+```sh
+opkg disk storage:/ https://bin.entware.net/aarch64-k3.10/installer/aarch64-installer.tar.gz
+```
+Для архитектуры Mipsel
+```sh
+opkg disk storage:/ https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz
+```
+
 # keenetic-setup
 
 One-shot setup script for a Keenetic router running Entware. It:
