@@ -44,6 +44,13 @@ log() {
 # and template downloads fail ("wget: not an http or ftp url").
 export PATH="/opt/bin:/opt/sbin:$PATH"
 
+# ndmc is a firmware (system) binary. When this script runs from an interactive
+# Entware shell, LD_LIBRARY_PATH (=/opt/lib) is exported, which makes the system
+# ndmc load incompatible Entware libraries and fail with "Cli::Main: failed to
+# initialize" [0xcffd0062]. Wrap it so every call runs with the loader vars
+# cleared (works whether run interactively or via a non-interactive shell).
+ndmc() { ( unset LD_LIBRARY_PATH LD_PRELOAD; command ndmc "$@" ); }
+
 # Install dependencies
 log "Updating package lists..."
 opkg update || log "Failed to update package lists"
