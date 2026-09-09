@@ -206,15 +206,21 @@ fi
 
 # DNS Configuration
 log "Configuring DNS servers..."
-ndmc -c dns-proxy tls upstream 213.202.211.221 sni ns2.opennameserver.org || log "Failed to set TLS upstream 1"
-ndmc -c dns-proxy tls upstream 77.88.8.8 sni common.dot.dns.yandex.net || log "Failed to set TLS upstream 2"
-ndmc -c dns-proxy tls upstream 8.8.4.4 sni dns.google || log "Failed to set TLS upstream 3"
-ndmc -c dns-proxy tls upstream 9.9.9.9 sni dns.quad9.net || log "Failed to set TLS upstream 4"
-ndmc -c dns-proxy tls upstream 1.1.1.1 sni cloudflare-dns.com || log "Failed to set TLS upstream 5"
+# DNS-over-TLS upstreams
+ndmc -c dns-proxy tls upstream 213.202.211.221 sni ns2.opennameserver.org || log "Failed to set TLS upstream (opennameserver)"
+ndmc -c dns-proxy tls upstream 77.88.8.8 sni common.dot.dns.yandex.net || log "Failed to set TLS upstream (yandex)"
+ndmc -c dns-proxy tls upstream 8.8.4.4 sni dns.google || log "Failed to set TLS upstream (google)"
+ndmc -c dns-proxy tls upstream 9.9.9.9 sni dns.quad9.net || log "Failed to set TLS upstream (quad9)"
+ndmc -c dns-proxy tls upstream 1.1.1.1 sni cloudflare-dns.com || log "Failed to set TLS upstream (cloudflare)"
+ndmc -c dns-proxy tls upstream 76.76.2.11 sni p0.freedns.controld.com || log "Failed to set TLS upstream (controld)"
 
-ndmc -c dns-proxy https upstream https://ns2.opennameserver.org/dns-query || log "Failed to set HTTPS upstream 1"
-ndmc -c dns-proxy https upstream https://common.dot.dns.yandex.net/dns-query || log "Failed to set HTTPS upstream 2"
-ndmc -c dns-proxy https upstream https://dns.google/dns-query || log "Failed to set HTTPS upstream 3"
+# DNS-over-HTTPS upstreams (paired one-to-one with the DoT list above)
+ndmc -c dns-proxy https upstream https://ns2.opennameserver.org/dns-query || log "Failed to set HTTPS upstream (opennameserver)"
+ndmc -c dns-proxy https upstream https://common.dot.dns.yandex.net/dns-query || log "Failed to set HTTPS upstream (yandex)"
+ndmc -c dns-proxy https upstream https://dns.google/dns-query || log "Failed to set HTTPS upstream (google)"
+ndmc -c dns-proxy https upstream https://dns.quad9.net/dns-query || log "Failed to set HTTPS upstream (quad9)"
+ndmc -c dns-proxy https upstream https://cloudflare-dns.com/dns-query || log "Failed to set HTTPS upstream (cloudflare)"
+ndmc -c dns-proxy https upstream https://freedns.controld.com/p0 || log "Failed to set HTTPS upstream (controld)"
 
 # Optionally ignore ISP-provided DNS so the router resolves only via the
 # upstreams above. Off by default (operator opt-in).
