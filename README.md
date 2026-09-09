@@ -7,6 +7,10 @@ no ppe hardware
 system configuration save
 ```
 
+### set strong admin password using Web UI
+
+http://192.168.1.1/administrator
+
 ### install entware using buitl in web UI CLI input or ssh/telnet
 
 http://192.168.1.1/a
